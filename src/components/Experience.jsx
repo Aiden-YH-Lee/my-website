@@ -1,4 +1,3 @@
-import React from 'react'
 import { EXPERIENCES } from '../constants'
 import { motion } from 'framer-motion'
 import { FaBriefcase, FaMapMarkerAlt } from 'react-icons/fa'
