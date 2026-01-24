@@ -1,6 +1,7 @@
 import React from 'react'
 import { EXPERIENCES } from '../constants'
 import { motion } from 'framer-motion'
+import { FaBriefcase, FaMapMarkerAlt } from 'react-icons/fa'
 
 const Experience = () => {
     return (
@@ -10,29 +11,48 @@ const Experience = () => {
                 initial={{ opacity: 0, y: -100 }}
                 transition={{ duration: 0.5 }}
                 className="my-20 text-center text-4xl">Experience</motion.h1>
-            <div>
+            <div className="relative max-w-7xl mx-auto">
+                {/* Timeline line - positioned between date and content columns */}
+                <div className="hidden lg:block absolute left-[20%] w-0.5 h-full bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 opacity-30" />
+
                 {EXPERIENCES.map((experience, index) => (
-                    <div key={index} className='mb-8 flex flex-wrap lg:justify-center'>
+                    <div key={index} className='mb-12 flex flex-wrap lg:justify-center relative'>
+                        {/* Timeline dot - aligned with the date text */}
+                        <div className="hidden lg:block absolute left-[20%] transform -translate-x-1/2 top-0 w-4 h-4 bg-purple-500 rounded-full border-4 border-neutral-900 z-10" />
+
                         <motion.div
                             whileInView={{ opacity: 1, x: 0 }}
                             initial={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 1 }}
-                            className="w-full lg:w-1/4">
-                            <p className='mb-2 text-sm text-neutral-400'>{experience.year}</p>
+                            transition={{ duration: 0.8 }}
+                            className="w-full lg:w-1/4 lg:pr-12 lg:text-right">
+                            <p className='text-sm font-medium text-purple-400'>{experience.year}</p>
+                            {experience.location && (
+                                <p className='text-xs text-neutral-500 flex items-center lg:justify-end gap-1 mt-1'>
+                                    <FaMapMarkerAlt className="text-neutral-600" />
+                                    {experience.location}
+                                </p>
+                            )}
                         </motion.div>
                         <motion.div
                             whileInView={{ opacity: 1, x: 0 }}
                             initial={{ opacity: 0, x: 100 }}
-                            transition={{ duration: 1 }}
-                            className="w-full max-w-xl lg:w-3/4">
-                            <h6 className="mb-2 font-semibold">
-                                {experience.role} - {" "}
-                                <span className='text-sm text-purple-100'>{experience.company}</span>
-                            </h6>
-                            <p className="mb-4 text-neutral-400">{experience.description}</p>
-                            {experience.technologies.map((tech, index) => (
-                                <span key={index} className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800">{tech}</span>
-                            ))}
+                            transition={{ duration: 0.8 }}
+                            className="w-full max-w-xl lg:w-3/4 lg:pl-8 mt-2 lg:mt-0">
+                            <div className="bg-neutral-900/50 rounded-xl p-5 border border-neutral-800 hover:border-purple-500/30 transition-all duration-300">
+                                <h6 className="mb-2 font-semibold text-lg flex items-center gap-2">
+                                    <FaBriefcase className="text-purple-400" />
+                                    {experience.role}
+                                    <span className='text-sm font-normal text-purple-300'>@ {experience.company}</span>
+                                </h6>
+                                <p className="mb-4 text-neutral-400 leading-relaxed">{experience.description}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {experience.technologies.map((tech, techIndex) => (
+                                        <span key={techIndex} className="rounded-full bg-purple-500/10 border border-purple-500/20 px-3 py-1 text-xs font-medium text-purple-300">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
                 ))}

@@ -1,10 +1,9 @@
 import React from 'react'
 import { RiReactjsLine } from 'react-icons/ri'
 import { DiJava } from 'react-icons/di'
-import { FaPython } from 'react-icons/fa'
+import { FaPython, FaNodeJs, FaDocker, FaAws, FaRust } from 'react-icons/fa'
 import { DiGit } from 'react-icons/di'
-import { FaNodeJs } from 'react-icons/fa'
-import { BiLogoPostgresql } from 'react-icons/bi'
+import { BiLogoPostgresql, BiLogoTypescript } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 
 const iconVariants = (duration) => ({
@@ -37,43 +36,82 @@ const Technologies = () => {
                     variants={iconVariants(2.5)}
                     initial='initial'
                     animate='animate'
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='React'>
                     <RiReactjsLine className='text-7xl text-cyan-400' />
                 </motion.div>
                 <motion.div
                     variants={iconVariants(3)}
                     initial='initial'
                     animate='animate'
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
-                    <DiGit className='text-7xl text-orange-500' />
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Rust'>
+                    <FaRust className='text-7xl text-orange-400' />
                 </motion.div>
                 <motion.div
                     variants={iconVariants(5)}
                     initial='initial'
                     animate='animate'
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Java'>
                     <DiJava className='text-7xl text-blue-300' />
                 </motion.div>
                 <motion.div
                     variants={iconVariants(3.5)}
                     initial='initial'
                     animate='animate'
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Python'>
                     <FaPython className='text-7xl text-yellow-300' />
                 </motion.div>
                 <motion.div
                     variants={iconVariants(2)}
                     initial='initial'
                     animate='animate'
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='TypeScript'>
+                    <BiLogoTypescript className='text-7xl text-blue-500' />
+                </motion.div>
+                <motion.div
+                    variants={iconVariants(4)}
+                    initial='initial'
+                    animate='animate'
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Node.js'>
                     <FaNodeJs className='text-7xl text-green-500' />
                 </motion.div>
                 <motion.div
                     variants={iconVariants(4.5)}
-                    className='rounded-2xl border-4 border-neutral-800 p-4'>
+                    initial='initial'
+                    animate='animate'
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='PostgreSQL'>
                     <BiLogoPostgresql className='text-7xl text-sky-700' />
                 </motion.div>
-
+                <motion.div
+                    variants={iconVariants(3.2)}
+                    initial='initial'
+                    animate='animate'
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Docker'>
+                    <FaDocker className='text-7xl text-blue-400' />
+                </motion.div>
+                <motion.div
+                    variants={iconVariants(2.8)}
+                    initial='initial'
+                    animate='animate'
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='AWS'>
+                    <FaAws className='text-7xl text-orange-500' />
+                </motion.div>
+                <motion.div
+                    variants={iconVariants(3.8)}
+                    initial='initial'
+                    animate='animate'
+                    className='rounded-2xl border-4 border-neutral-800 p-4'
+                    title='Git'>
+                    <DiGit className='text-7xl text-red-500' />
+                </motion.div>
             </motion.div>
         </div>
     )

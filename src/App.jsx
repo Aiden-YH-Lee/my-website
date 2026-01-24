@@ -2,9 +2,11 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Education from './components/Education'
 import Technologies from './components/Technologies'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Awards from './components/Awards'
 import Contact from './components/Contact'
 
 const App = () => {
@@ -19,9 +21,11 @@ const App = () => {
         <Navbar />
         <Hero />
         <About />
-        <Technologies />
+        <Education />
         <Experience />
+        <Awards />
         <Projects />
+        <Technologies />
         <Contact />
       </div>
     </div>
