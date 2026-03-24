@@ -2,10 +2,11 @@ import project2 from "../assets/projects/SPOTBNB.png";
 import project1 from "../assets/projects/Website.png";
 import project3 from "../assets/projects/Chingus.png";
 import project4 from "../assets/projects/VidToScore.png";
+import project5 from "../assets/projects/PennPlates.png";
 
 export const HERO_CONTENT = `I am a senior pursuing a Master's in Robotics (AI focus) and Bachelor's in Computer Science at the University of Pennsylvania. I'm passionate about the intersection of software engineering and artificial intelligence. Outside work, I play keys, jam with my band, produce music, and travel the world.`;
 
-export const ABOUT_TEXT = `I was born in Seoul, South Korea and lived in Singapore for 4 years, where I learned to appreciate cultural diversity. At Penn, I've been a Teaching Assistant for AI courses, co-founded a startup that won Best AI for Business at Wharton Venture Lab ($10k prize), and contributed to research published at NeurIPS. I've been a part of numerous clubs such as Penn Jazz Combo, Kapacity (rock band), and Wharton Undergraduate Finance Club. I've interned at numerous companies, working on a diverse array of projects from compilers to chatbots.`;
+export const ABOUT_TEXT = `I was born in Seoul, South Korea and lived in Singapore for 4 years, where I learned to appreciate cultural diversity. At Penn, I've been a Teaching Assistant for AI courses, pitched a startup that won Best AI for Business at Wharton Venture Lab ($10k prize), and contributed to research published at NeurIPS workshop and ICASSP. I've been a part of numerous clubs such as Penn Jazz Combo, Kapacity (rock band), and Wharton Undergraduate Finance Club. I've interned at numerous companies, working on a diverse array of projects from compilers to chatbots.`;
 
 export const EDUCATION = [
   {
@@ -61,7 +62,7 @@ export const EXPERIENCES = [
     role: "Research Assistant",
     company: "Drexel University METLAB",
     location: "Philadelphia, PA",
-    description: `Processed 20,000+ audio files for predominant instrument classification. Experimented with pretraining and layer-freezing strategies. Created OpenPIR, an enhanced dataset with improved class balance. Co-authored a paper accepted at NeurIPS 2025 Workshop on AI for Music.`,
+    description: `Processed 20,000+ audio files for predominant instrument classification. Experimented with pretraining and layer-freezing strategies. Created OpenPIR, an enhanced dataset with improved class balance. Co-authored a paper accepted at NeurIPS 2025 Workshop on AI for Music and ICASSP 2026.`,
     technologies: ["Python", "PyTorch", "Scikit-learn", "Huggingface"],
   },
   {
@@ -106,6 +107,15 @@ export const LEADERSHIP = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Penn Plates",
+    image: project5,
+    description:
+      "Built a meal-matching platform for Penn students to meet new people over dinner. Students sign up for dining hall or restaurant slots, get grouped into small parties, and receive a group chat to coordinate.",
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vercel"],
+    github: null,
+    demo: "https://pennplates.org",
+  },
   {
     title: "VidToScore",
     image: project4,
