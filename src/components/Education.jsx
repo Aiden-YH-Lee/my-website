@@ -44,7 +44,7 @@ const Education = () => {
                                             <p className="text-sm text-neutral-400">{degree.expected}</p>
                                         </div>
                                         <div className="mt-2 sm:mt-0 sm:ml-4">
-                                            <span className="inline-block px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-lg text-green-400 font-bold">
+                                            <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg text-purple-300 font-bold">
                                                 GPA: {degree.gpa}
                                             </span>
                                         </div>

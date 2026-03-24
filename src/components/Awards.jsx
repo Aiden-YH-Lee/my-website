@@ -35,7 +35,7 @@ const Awards = () => {
                                     </div>
                                     <div className="flex flex-wrap items-center gap-3 mb-3">
                                         <span className="text-lg font-semibold text-neutral-200">{award.award}</span>
-                                        <span className="px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-full text-green-400 font-bold text-sm">
+                                        <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/40 rounded-full text-purple-300 font-bold text-sm">
                                             {award.prize}
                                         </span>
                                     </div>
