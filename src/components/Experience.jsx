@@ -1,63 +1,121 @@
-import { EXPERIENCES } from '../constants'
 import { motion } from 'framer-motion'
-import { FaBriefcase, FaMapMarkerAlt } from 'react-icons/fa'
+import { EXPERIENCES, LEADERSHIP } from '../constants'
+import SectionHeader from './SectionHeader'
+import SectionDivider from './SectionDivider'
+import { fadeInUp, staggerContainer, viewportOnce } from '../utils/animations'
+
+const TrackEntry = ({ index, role, company, year, location, description, technologies }) => {
+  const trackNum = String(index + 1).padStart(2, '0')
+
+  return (
+    <motion.div
+      variants={fadeInUp}
+      className="group"
+    >
+      <div className="track-hover flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-8 py-6 px-4 -mx-4 rounded-lg transition-colors duration-300">
+        {/* Track number */}
+        <span className="track-num font-mono text-3xl lg:text-4xl font-light transition-colors duration-300 lg:w-16 shrink-0">
+          {trackNum}
+        </span>
+
+        {/* Main content */}
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-3">
+            <div>
+              <h3 className="font-display text-xl text-cream">{role}</h3>
+              <p className="font-body text-sm text-cream-muted">{company}{location && ` — ${location}`}</p>
+            </div>
+            <span className="font-mono text-xs text-cream-muted tracking-wider shrink-0">
+              {year}
+            </span>
+          </div>
+
+          <p className="font-body text-sm text-cream-muted leading-relaxed mb-3">
+            {description}
+          </p>
+
+          {technologies.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="font-mono text-xs text-amber bg-amber-dim rounded px-2 py-0.5"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Separator line */}
+      <div className="h-px bg-border" />
+    </motion.div>
+  )
+}
 
 const Experience = () => {
-    return (
-        <div className="border-b border-neutral-900 pb-4">
-            <motion.h1
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: -100 }}
-                transition={{ duration: 0.5 }}
-                className="my-20 text-center text-4xl">Experience</motion.h1>
-            <div className="relative max-w-7xl mx-auto">
-                {/* Timeline line - positioned between date and content columns */}
-                <div className="hidden lg:block absolute left-[20%] w-0.5 h-full bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 opacity-30" />
+  return (
+    <section id="experience" className="py-24">
+      <SectionHeader number="02" title="Experience" />
 
-                {EXPERIENCES.map((experience, index) => (
-                    <div key={index} className='mb-12 flex flex-wrap lg:justify-center relative'>
-                        {/* Timeline dot - aligned with the date text */}
-                        <div className="hidden lg:block absolute left-[20%] transform -translate-x-1/2 top-0 w-4 h-4 bg-purple-500 rounded-full border-4 border-neutral-900 z-10" />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
+        {EXPERIENCES.map((exp, index) => (
+          <TrackEntry
+            key={index}
+            index={index}
+            role={exp.role}
+            company={exp.company}
+            year={exp.year}
+            location={exp.location}
+            description={exp.description}
+            technologies={exp.technologies}
+          />
+        ))}
+      </motion.div>
 
-                        <motion.div
-                            whileInView={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 0.8 }}
-                            className="w-full lg:w-1/4 lg:pr-12 lg:text-right">
-                            <p className='text-sm font-medium text-purple-400'>{experience.year}</p>
-                            {experience.location && (
-                                <p className='text-xs text-neutral-500 flex items-center lg:justify-end gap-1 mt-1'>
-                                    <FaMapMarkerAlt className="text-neutral-600" />
-                                    {experience.location}
-                                </p>
-                            )}
-                        </motion.div>
-                        <motion.div
-                            whileInView={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: 100 }}
-                            transition={{ duration: 0.8 }}
-                            className="w-full max-w-xl lg:w-3/4 lg:pl-8 mt-2 lg:mt-0">
-                            <div className="bg-neutral-900/50 rounded-xl p-5 border border-neutral-800 hover:border-purple-500/30 transition-all duration-300">
-                                <h6 className="mb-2 font-semibold text-lg flex items-center gap-2">
-                                    <FaBriefcase className="text-purple-400" />
-                                    {experience.role}
-                                    <span className='text-sm font-normal text-purple-300'>@ {experience.company}</span>
-                                </h6>
-                                <p className="mb-4 text-neutral-400 leading-relaxed">{experience.description}</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {experience.technologies.map((tech, techIndex) => (
-                                        <span key={techIndex} className="rounded-full bg-purple-500/10 border border-purple-500/20 px-3 py-1 text-xs font-medium text-purple-300">
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
+      {/* Leadership sub-section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.6 }}
+        className="mt-16"
+      >
+        <h3 className="font-mono text-xs text-amber uppercase tracking-[0.2em] mb-8">Leadership</h3>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          {LEADERSHIP.map((item, index) => (
+            <motion.div key={index} variants={fadeInUp} className="py-4">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+                <div>
+                  <h4 className="font-display text-lg text-cream">{item.role}</h4>
+                  <p className="font-body text-sm text-cream-muted">{item.organization}</p>
+                </div>
+                <span className="font-mono text-xs text-cream-muted tracking-wider shrink-0">
+                  {item.year}
+                </span>
+              </div>
+              <p className="font-body text-sm text-cream-muted leading-relaxed">{item.description}</p>
+              {index < LEADERSHIP.length - 1 && <div className="h-px bg-border mt-4" />}
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      <SectionDivider />
+    </section>
+  )
 }
 
 export default Experience

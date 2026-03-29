@@ -1,35 +1,28 @@
-import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Education from './components/Education'
-import Technologies from './components/Technologies'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import Awards from './components/Awards'
+import Credentials from './components/Credentials'
+import Skills from './components/Skills'
 import Contact from './components/Contact'
-import ScrollProgress from './components/ScrollProgress'
-import BackToTop from './components/BackToTop'
+import LPPlayer from './components/LPPlayer'
+import CustomCursor from './components/CustomCursor'
 
 const App = () => {
   return (
-    <div className='overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900'>
-      <ScrollProgress />
-      <BackToTop />
-      <div className='fixed top-0 -z-10 h-full w-full'>
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-      </div>
+    <div className="overflow-x-hidden bg-base text-cream font-body antialiased selection:bg-amber-dim selection:text-amber">
+      <CustomCursor />
+      <LPPlayer />
+      <Navbar />
 
-
-      <div className='container mx-auto px-8'>
-        <Navbar />
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <Hero />
         <About />
-        <Education />
         <Experience />
-        <Awards />
         <Projects />
-        <Technologies />
+        <Credentials />
+        <Skills />
         <Contact />
       </div>
     </div>

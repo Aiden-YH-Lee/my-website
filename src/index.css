@@ -1,5 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Theme Variables ── */
+:root {
+  --color-base: #0a0a0b;
+  --color-surface: #111113;
+  --color-border: #1a1a1c;
+  --color-border-hover: #2a2a2e;
+  --color-cream: #e8e4de;
+  --color-cream-muted: #a8a49e;
+  --color-amber: #c9a84c;
+  --color-amber-dim: rgba(201, 168, 76, 0.15);
+  --color-sage: #6b7c6e;
+  --color-sage-dim: rgba(107, 124, 110, 0.15);
+  --noise-opacity: 0.03;
+}
+
+:root.light {
+  --color-base: #f5f2ed;
+  --color-surface: #ebe7e0;
+  --color-border: #d5d0c8;
+  --color-border-hover: #c0bab0;
+  --color-cream: #1a1a1c;
+  --color-cream-muted: #5a5650;
+  --color-amber: #a07d2e;
+  --color-amber-dim: rgba(160, 125, 46, 0.12);
+  --color-sage: #4a5e4d;
+  --color-sage-dim: rgba(74, 94, 77, 0.12);
+  --noise-opacity: 0.025;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--color-base);
+  color: var(--color-cream);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Theme-aware utility overrides — Tailwind compiles CSS vars to static values,
+   so we re-declare the critical ones to ensure they reference the live variables. */
+/* Theme-aware utility overrides — Tailwind v3 compiles CSS vars to static values,
+   so we re-declare them to ensure they reference the live CSS variables. */
+.bg-base { background-color: var(--color-base) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+.text-cream { color: var(--color-cream) !important; }
+.text-cream-muted { color: var(--color-cream-muted) !important; }
+.text-amber { color: var(--color-amber) !important; }
+.bg-amber-dim { background-color: var(--color-amber-dim) !important; }
+.bg-border { background-color: var(--color-border) !important; }
+.border-border { border-color: var(--color-border) !important; }
+.border-amber { border-color: var(--color-amber) !important; }
+
+/* Hover state overrides — Tailwind also compiles these to static values */
+.hover\:bg-surface:hover { background-color: var(--color-surface) !important; }
+.group:hover .group-hover\:text-amber { color: var(--color-amber) !important; }
+.hover\:text-cream:hover { color: var(--color-cream) !important; }
+.hover\:text-amber:hover { color: var(--color-amber) !important; }
+
+/* Experience track hover — ensures proper colors in both themes */
+.track-hover:hover {
+  background-color: var(--color-surface) !important;
+}
+
+/* Track numbers — visible in both themes, amber on hover */
+.track-num {
+  color: var(--color-cream-muted);
+  opacity: 0.35;
+}
+.group:hover .track-num {
+  color: var(--color-amber) !important;
+  opacity: 1;
+}
+
+/* Subtle noise grain overlay for analog warmth */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+
+/* NowPlaying / LP Player equalizer bar animation */
+@keyframes eqBar1 {
+  0%, 100% { height: 4px; }
+  50% { height: 12px; }
+}
+@keyframes eqBar2 {
+  0%, 100% { height: 8px; }
+  50% { height: 4px; }
+}
+@keyframes eqBar3 {
+  0%, 100% { height: 6px; }
+  50% { height: 14px; }
+}
+
+/* LP Vinyl spin animation */
+@keyframes spin-vinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-spin {
+  animation: spin-vinyl 3s linear infinite;
+}
+
+.vinyl-spin.paused {
+  animation-play-state: paused;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Transition helpers for theme switch */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease !important;
+}
