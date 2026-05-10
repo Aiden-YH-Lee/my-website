@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { HERO_TAGLINE } from '../constants'
-import profilePic from '../assets/IMG_7028.jpg'
+import profilePic from '../assets/IMG_4468.jpeg'
 import StaffLines from './StaffLines'
-import { letterReveal, viewportOnce } from '../utils/animations'
+import { letterReveal } from '../utils/animations'
 
 const Hero = () => {
   const { scrollY } = useScroll()

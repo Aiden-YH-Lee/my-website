@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import aboutImg from '../assets/friends.jpg'
+import aboutImg from '../assets/IMG_4408.jpeg'
 import { ABOUT_TEXT, ABOUT_PULLQUOTE } from '../constants'
 import SectionHeader from './SectionHeader'
 import SectionDivider from './SectionDivider'

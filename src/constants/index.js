@@ -10,7 +10,7 @@ export const ABOUT_TEXT = `I am a senior pursuing a Master's in Robotics (AI foc
 
 I was born in Seoul, South Korea and lived in Singapore for 4 years, where I learned to appreciate cultural diversity. At Penn, I've been a Teaching Assistant for AI courses, pitched a startup that won Best AI for Business at Wharton Venture Lab ($10k prize), and contributed to research published at NeurIPS workshop and ICASSP. I've been a part of numerous clubs such as Penn Jazz Combo, Kapacity (rock band), and Wharton Undergraduate Finance Club. I've interned at numerous companies, working on a diverse array of projects from compilers to chatbots.`;
 
-export const ABOUT_PULLQUOTE = "Pitched a startup that won Best AI for Business at Wharton Venture Lab — $10k prize. Research published at NeurIPS workshop and ICASSP.";
+export const ABOUT_PULLQUOTE = "Passionate about AI startups and academic research, with works recognized by Wharton Venture Lab and accepted at NeurIPS and ICASSP.";
 
 export const EDUCATION = [
   {
